@@ -1,14 +1,14 @@
 import { mount } from "@vue/test-utils";
-import VoiceActorList from '@/components/VoiceActorList.vue';
-import VoiceActorCard from '@/components/VoiceActorCard.vue';
-import { VoiceActor } from '@/api/models/VoiceActor';
+import VoiceActorList from "@/components/VoiceActorList.vue";
+import VoiceActorCard from "@/components/VoiceActorCard.vue";
+import { actor } from "./../../__mocks__/actor"
 
 describe("VoiceActorList", () => {
-  const actor = {} as VoiceActor;
   const actors = 20;
   const wrapper = mount(VoiceActorList, {
     propsData: {
-      actors: new Array(20).fill(actor)
+      actors: new Array(20).fill(actor),
+      keyword: ''
     }
   });
 

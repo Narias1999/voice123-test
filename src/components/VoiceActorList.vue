@@ -22,8 +22,8 @@ import { Component, Prop } from "vue-property-decorator";
 })
 export default class App extends Vue {
   @Prop()
-  actors!: VoiceActor[];
+  public actors!: VoiceActor[];
   @Prop()
-  keyword!: String;
+  public keyword!: string;
 }
 </script>

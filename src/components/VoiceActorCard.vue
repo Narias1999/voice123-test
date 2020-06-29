@@ -46,21 +46,21 @@ import { Component, Prop } from "vue-property-decorator";
 })
 export default class App extends Vue {
   @Prop()
-  actor!: VoiceActor;
+  public actor!: VoiceActor;
 
   @Prop()
-  keyword!: string;
+  public keyword!: string;
 
-  paragraphFilter(paragraph: string) {
+  public paragraphFilter(paragraph: string) {
     const lowercased = this.keyword.toLowerCase().split(" ");
     return paragraph.search(new RegExp(lowercased.join("|"), "ig")) > -1;
   }
 
   get sumary(): string {
-    if (!this.actor.summary) return "Summary not available 😞";
+    if (!this.actor.summary) { return "Summary not available 😞"; }
     const paragraphs = this.actor.summary.split("\n");
     const filtered = paragraphs.filter(this.paragraphFilter);
-    if (!filtered[0]) return paragraphs[0];
+    if (!filtered[0]) { return paragraphs[0]; }
 
     const splittedKeywords = this.keyword.split(" ");
 

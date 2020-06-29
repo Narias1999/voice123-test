@@ -28,7 +28,6 @@ export default Vue.extend({
       this.$emit("goToPage", this.pagination.currentPage - 1);
     },
     handleInput(page: number) {
-      console.log(page);
       this.$emit("goToPage", page);
     }
   },

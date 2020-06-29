@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import SearchBar from '@/components/SearchBar.vue';
+import SearchBar from "@/components/SearchBar.vue";
 
 describe("SearchBar", () => {
   const wrapper = mount(SearchBar);
@@ -12,16 +12,16 @@ describe("SearchBar", () => {
     expect(wrapper.findAll("v-btn").length).toBe(1);
   });
 
-  it('Emmits search event on click button', async () => {
-    const wrapper = mount(SearchBar);
+  it("Emmits search event on click button", async () => {
+    const emitterWrapper = mount(SearchBar);
     const value = "foo bar2";
 
-    wrapper.setData({
+    emitterWrapper.setData({
       search: value
     });
 
-    const button = wrapper.find('v-btn');
-    await button.trigger('click')
-    expect(wrapper.emitted().onSearch?.[0]).toEqual([value]);
-  })
+    const button = emitterWrapper.find("v-btn");
+    await button.trigger("click");
+    expect(emitterWrapper.emitted().onSearch?.[0]).toEqual([value]);
+  });
 });

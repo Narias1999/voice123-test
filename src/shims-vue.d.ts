@@ -3,4 +3,4 @@ declare module "*.vue" {
   export default Vue;
 }
 
-declare module "vue-aplayer"
+declare module "vue-aplayer";

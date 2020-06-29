@@ -7,8 +7,9 @@ import Layout from "@/App.vue";
 describe("App.vue app layout and main controller", () => {
   const wrapper = shallowMount(Layout);
   wrapper.setData({
-    actors: []
-  })
+    actors: [],
+    loading: false
+  });
 
   it("Has toolbar", () => {
     expect(wrapper.get("v-app-bar"));
