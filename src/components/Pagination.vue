@@ -1,7 +1,5 @@
 <template>
-  <v-container>
-    <h1>I'm the Pagination component</h1>
-  </v-container>
+  <v-container></v-container>
 </template>
 
 <script lang="ts">

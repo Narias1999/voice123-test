@@ -29,3 +29,5 @@ npm run test:unit
 - Data models. 30m
 - Api service / tests. 40m
 - SearchBar Component / tests. 30m
+- VoiceActorsList Component / tests. 40m
+- VoiceActorCard Component / tests. 40m

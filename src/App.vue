@@ -12,13 +12,13 @@
         />
       </div>
       <v-spacer />
-      <SearchBar />
+      <SearchBar @onSearch="handleSearch" />
       <v-spacer />
     </v-app-bar>
 
     <v-content>
-      <VoiceActorList />
-      <Pagination />
+      <VoiceActorList :actors="actors" :keyword="keyword" />
+      <Pagination :pagination="pagination" />
     </v-content>
   </v-app>
 </template>
@@ -31,6 +31,7 @@ import VoiceActorList from "./components/VoiceActorList.vue";
 import Pagination from "./components/Pagination.vue";
 import { getActors } from "./api";
 import { ApiResponse } from "./api/models/ApiRespose";
+import { VoiceActor } from "./api/models/VoiceActor";
 
 export default Vue.extend({
   name: "App",
@@ -45,10 +46,21 @@ export default Vue.extend({
     this.fetchData();
   },
 
-  data: () => ({}),
+  data: () => ({
+    actors: [] as VoiceActor[],
+    pagination: null as any,
+    keyword: ""
+  }),
   methods: {
-    fetchData(): Promise<ApiResponse> {
-      return getActors("", 1);
+    handleSearch(keyword: string) {
+      this.keyword = keyword;
+      this.actors = [];
+      this.fetchData(keyword, 1);
+    },
+    async fetchData(keyword = "", page = 1) {
+      const data = await getActors(keyword, 1);
+      this.actors = data.voiceActors;
+      this.pagination = data.pagination;
     }
   }
 });

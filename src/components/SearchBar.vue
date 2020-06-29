@@ -29,7 +29,6 @@ export default Vue.extend({
 
   methods: {
     handleSearch() {
-      console.log("searching");
       this.$emit("onSearch", this.search);
     }
   },
