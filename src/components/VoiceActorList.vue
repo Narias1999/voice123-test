@@ -5,6 +5,7 @@
         <VoiceActorCard :actor="actor" :keyword="keyword" />
       </v-col>
     </v-row>
+    <h1 class="text-center" v-show="!actors.length">We didn't find nobody with the description you are looking for :(</h1>
   </v-container>
 </template>
 
@@ -27,3 +28,8 @@ export default class App extends Vue {
   public keyword!: string;
 }
 </script>
+<style scoped>
+  h1 {
+    margin: 40px 0;
+  }
+</style>
