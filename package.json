@@ -24,6 +24,7 @@
     "@vue/cli-plugin-unit-jest": "^4.4.0",
     "@vue/cli-service": "^4.4.0",
     "@vue/test-utils": "^1.0.3",
+    "isomorphic-fetch": "^2.2.1",
     "sass": "^1.19.0",
     "sass-loader": "^8.0.0",
     "typescript": "~3.9.3",

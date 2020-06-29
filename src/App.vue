@@ -29,6 +29,8 @@ import Vue from "vue";
 import SearchBar from "./components/SearchBar.vue";
 import VoiceActorList from "./components/VoiceActorList.vue";
 import Pagination from "./components/Pagination.vue";
+import { getActors } from "./api";
+import { ApiResponse } from "./api/models/ApiRespose";
 
 export default Vue.extend({
   name: "App",
@@ -39,6 +41,15 @@ export default Vue.extend({
     Pagination
   },
 
-  data: () => ({})
+  mounted() {
+    this.fetchData();
+  },
+
+  data: () => ({}),
+  methods: {
+    fetchData(): Promise<ApiResponse> {
+      return getActors("", 1);
+    }
+  }
 });
 </script>

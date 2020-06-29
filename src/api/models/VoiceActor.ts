@@ -2,7 +2,7 @@ import { Location } from './Location';
 import { User } from './User';
 import { RelevantSample } from './RelevantSample'
 
-interface VoiceActor {
+export interface VoiceActor {
   id: number
   user_id: number
   service_id: string
