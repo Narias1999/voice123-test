@@ -1,15 +1,29 @@
-import { shallowMount } from '@vue/test-utils';
-import Layout from '@/App.vue';
+import { shallowMount } from "@vue/test-utils";
+import VoiceActorList from "@/components/VoiceActorList.vue";
+import Pagination from "@/components/Pagination.vue";
+import SearchBar from "@/components/SearchBar.vue";
+import Layout from "@/App.vue";
 
-describe('App.vue app layout and main controller', () => {
+describe("App.vue app layout and main controller", () => {
   const wrapper = shallowMount(Layout);
 
-  it('Has toolbar', () => {
-    expect(wrapper.contains('v-app-bar')).toBe(true);
+  it("Has toolbar", () => {
+    expect(wrapper.get("v-app-bar"));
   });
 
-  it('Has voice123 logo', () => {
-    expect(wrapper.contains('v-app-bar .logo')).toBe(true);
+  it("Has voice123 logo", () => {
+    expect(wrapper.get("v-app-bar .voice123Logo"));
   });
 
+  it("Has search bar", () => {
+    expect(wrapper.findComponent(SearchBar).exists()).toBe(true);
+  });
+
+  it("Has Voice Actor List", () => {
+    expect(wrapper.findComponent(VoiceActorList).exists()).toBe(true);
+  });
+
+  it("Has Pagination", () => {
+    expect(wrapper.findComponent(Pagination).exists()).toBe(true);
+  });
 });
