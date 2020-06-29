@@ -16,10 +16,14 @@
       <v-spacer />
     </v-app-bar>
 
-    <v-content>
+    <v-main v-if="!loading">
       <VoiceActorList :actors="actors" :keyword="keyword" />
-      <Pagination :pagination="pagination" />
-    </v-content>
+      <Pagination :pagination="pagination" @goToPage="goToPage" />
+    </v-main>
+    <div v-show="loading" class="loader">
+      <v-progress-circular indeterminate color="primary" size="100"></v-progress-circular>
+      <h3 class="loader-message">We are looking for someone who will help you achieve your goals...</h3>
+    </div>
   </v-app>
 </template>
 
@@ -49,7 +53,8 @@ export default Vue.extend({
   data: () => ({
     actors: [] as VoiceActor[],
     pagination: null as any,
-    keyword: ""
+    keyword: "",
+    loading: true
   }),
   methods: {
     handleSearch(keyword: string) {
@@ -57,11 +62,29 @@ export default Vue.extend({
       this.actors = [];
       this.fetchData(keyword, 1);
     },
+    goToPage(page: number) {
+      this.fetchData(this.keyword, page);
+    },
     async fetchData(keyword = "", page = 1) {
-      const data = await getActors(keyword, 1);
+      this.loading = true;
+      const data = await getActors(keyword, page);
       this.actors = data.voiceActors;
       this.pagination = data.pagination;
+      this.loading = false;
     }
   }
 });
 </script>
+<style scoped>
+.loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.loader-message {
+  margin-top: 25px;
+  color: #888;
+}
+</style>

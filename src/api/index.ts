@@ -7,9 +7,7 @@ const urlBuilder = (keyword: string, page: number): string => `${BASE_URL}keywor
 
 
 export async function getActors(keyword: string, page: number): Promise<ApiResponse> {
-  console.log(keyword, page)
   const url = urlBuilder(keyword, page);
-  console.log(keyword, page)
   const response = await fetch(url);
   const headers = response.headers;
 

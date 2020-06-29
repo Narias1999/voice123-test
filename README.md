@@ -31,3 +31,6 @@ npm run test:unit
 - SearchBar Component / tests. 30m
 - VoiceActorsList Component / tests. 40m
 - VoiceActorCard Component / tests. 40m
+- Search Algorithm. 50m
+- Pagination. 30m
+- Audio player. 40m
