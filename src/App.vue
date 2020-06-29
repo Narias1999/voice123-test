@@ -11,9 +11,9 @@
           width="130"
         />
       </div>
-      <div class="serchBar">
-        <SearchBar />
-      </div>
+      <v-spacer />
+      <SearchBar />
+      <v-spacer />
     </v-app-bar>
 
     <v-content>

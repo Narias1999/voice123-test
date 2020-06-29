@@ -1,39 +1,31 @@
 # voice123-test
 
+App for searching voice actors. Powered by Voice123.
+
 ## Project setup
+
 ```
 npm install
 ```
 
 ### Compiles and hot-reloads for development
+
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Run your end-to-end tests
-```
-npm run test:e2e
-```
-
 ### Run your unit tests
+
 ```
 npm run test:unit
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Worklog
+
+- Project planning / api exploration. 20m
+- Low quality mockup and divide app in components. 40m
+- Project setup. 20m
+- Layout / tests. 30m
+- Data models. 30m
+- Api service / tests. 40m
+- SearchBar Component / tests. 30m
